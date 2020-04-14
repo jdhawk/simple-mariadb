@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb:10.4
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mnt/db:/var/lib/mysql
+      - ./config/mariadb:/etc/mysql/conf.d
+    env_file:
+      - ./config/app.local
